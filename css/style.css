@@ -1,0 +1,173 @@
+@charset "utf-8";
+
+html {
+    font-size: 100%;
+}
+body {
+    color: rgb(10, 7, 3);
+    font-family: 'Crimson Text', serif;
+}
+img {
+    max-width: 100%;
+    vertical-align: bottom;
+}
+ul {
+    list-style: none;
+
+}
+a {
+    color: black;
+    text-decoration: none;
+
+}
+
+/* main,footerの幅を設定しよう(container-コンテナ) */
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 18px;
+
+}
+.site-title {
+    width: 110px;
+    line-height: 1px;
+    margin-right: 50px;
+
+}
+.site-title a {
+    display: block;
+}
+.section-title {
+    font-size: 1.5rem;
+    font-weight: normal;
+    margin-bottom: 4px;
+}
+
+/* spanを使っているため 「display: inline-block;」を設定すると、
+改行されmargin-bottomが使用できる。
+ｐでもいいけど、文章でない為に今回はspanを選択している。*/↓ ↓
+
+.section-title-em {
+    display: inline-block;
+    margin-bottom: 25px;
+}
+
+/* -------------------------
+ここからmainvisualを設定していく 
+idを使っている為、＃から記述していく
+----------------------------------*/
+#mainisual {
+    width: 90vw;
+    margin: 4% auto 0 auto;
+}
+
+/* -----------------
+headerを設定していく
+ ----------------------------*/
+#header {
+  width: 90vw;
+  display: flex;
+  align-items: center;
+  padding: 32px 0;
+  margin: 0 auto 30px auto;
+}
+#header ul {
+  display: flex;
+}
+#header li {
+  font-size: 0.875rem;
+  margin-right: 30px;
+}
+ 
+/* --------------
+最後のタグは設定なしにする。
+------------------ */
+#header li:last-child {
+    margin-right: 0;
+}
+/* -----------------------
+concept,workの設定。
+-------------------------*/
+.content {
+    display: flex;
+    align-items: center;
+    margin-bottom: 60px;
+}
+.content .img {
+    width: 50%;
+}
+.content .text {
+    width: 50%;
+    padding: 0 7%;
+}
+
+/* --------------
+footerの設定へ
+ ----------------*/
+#footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  padding: 20px 0; 
+}
+#footer .logo {
+  width: 110px;
+}
+#mainvisual  img {
+    width: 1900px;
+    height: 950px;
+    object-fit: none;
+    object-position: 0% 45%;
+
+}
+/* -------------------
+レスポンシブ対応の設定へ
+----------------------- */
+@media screen and (max-width: 767px) {
+    .section-title {
+        font-size: 1.25rem;
+    }
+    /* --------------
+    mainvisualの設定へ
+    ----------------- */
+   
+    /* -----------
+    heightをvhで指定し、画面の高さを基準にした高さになる。
+    -------------------- */
+    #mainvisual img {
+
+        height: 50vh;
+        object-fit: cover;
+    }
+    /* ----------------
+    headerの設定へ
+    ------------------- */
+    #header {
+        width: 100%;
+        padding: 20px 18px;
+    }
+    /* ---------------
+    concept.workの設定へ
+    ------------------ */
+    /* 
+    pointとして、workはそのまま画像とテキストを縦に並べると、
+    テキスト→画像の順番になる。
+    その為、「flex-direction: column-reverse;」を使用し逆順にする。
+     */
+    #work {
+        flex-direction: column-reverse;
+    } 
+    .content {
+        flex-direction: column;
+    }
+    .content .img {
+        width: 100%;
+        margin-bottom: 10px;      
+    }
+    .content .text {
+        width: 100%;
+        padding: 0;        
+    }
+    
+}
